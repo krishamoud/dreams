@@ -12,3 +12,10 @@ docker run -d \
 ```
 
 *It needs the ROOT_URL because it is a meteor app and is required to run*
+
+### Dashboard
+![Image of Dream dashboard](./stream.png)
+
+### Logs
+
+![Image of Dream logs](./logs.png)
