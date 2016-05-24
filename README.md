@@ -28,5 +28,5 @@ stream it to the client via ddp so you can get real time stats and logs.
 
 ### TODO
 - Add host information
-- Add optional database for use authentication
+- Add optional database for user authentication
 - Add testing
