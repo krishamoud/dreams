@@ -13,9 +13,20 @@ docker run -d \
 
 *It needs the ROOT_URL because it is a meteor app and is required to run*
 
+## Overview
+
+Dreams is a meteor application that doesn't need a mongodb that will gather data about your docker swarm and
+stream it to the client via ddp so you can get real time stats and logs.
+
 ### Dashboard
 ![Image of Dream dashboard](./stream.png)
 
 ### Logs
 
 ![Image of Dream logs](./logs.png)
+
+
+### TODO
+- Add host information
+- Add optional database for use authentication
+- Add testing
