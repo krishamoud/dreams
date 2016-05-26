@@ -56,3 +56,15 @@ Meteor.publish('dockerStats', function (containerId) {
     });
   }
 });
+
+Meteor.publish('dockerHosts', function() {
+  docker.info((err, info) => {
+    if (info) {
+      this.added('hosts', Random.id(), { hosts: info })
+      this.ready();
+    } else {
+      console.log(err);
+      this.ready();
+    }
+  });
+})

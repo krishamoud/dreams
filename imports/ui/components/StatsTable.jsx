@@ -1,7 +1,6 @@
 import React from 'react';
 import ContainerList from './ContainerList';
 import { _ } from 'meteor/underscore';
-import { Containers } from '../../api/containers/client/containers.js';
 export default class StatsTable extends React.Component {
   constructor(props) {
     super(props);
@@ -15,15 +14,15 @@ export default class StatsTable extends React.Component {
     let formatUsed;
     let formatLimit;
     if (used >= 1000000000 ) {
-      formatUsed = `${used / 1000000000} GB`;
+      formatUsed = `${Math.round((used / 1000000)) / 1000} GB`;
     } else {
-      formatUsed = `${used / 1000000} MB`;
+      formatUsed = `${Math.round((used / 1000)) / 1000} MB`;
     }
 
     if (limit >= 1000000000) {
-      formatLimit = `${limit / 1000000000} GB`;
+      formatLimit = `${Math.round((limit / 1000000) / 1000)} GB`;
     } else {
-      formatLimit = `${limit / 1000000} MB`;
+      formatLimit = `${Math.round((limit / 1000) / 1000)} MB`;
     }
     return `${formatUsed} / ${formatLimit}`
   }
@@ -41,7 +40,7 @@ export default class StatsTable extends React.Component {
 
   getContainerName(containerId) {
     const container = _.findWhere(this.props.containers, { _id: containerId });
-    return container.container.Names[0].replace(/\/.*\//g, '');
+    return container.container.Names[0];
   }
 
   renderTableRows() {
@@ -84,7 +83,3 @@ export default class StatsTable extends React.Component {
     );
   }
 }
-
-StatsTable.contextTypes = {
-  router: React.PropTypes.object,
-};
