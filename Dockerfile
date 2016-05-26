@@ -1,2 +1,2 @@
-FROM meteorhacks/meteord:onbuild
+FROM jshimko/meteord:onbuild
 MAINTAINER Kris Hamoud
